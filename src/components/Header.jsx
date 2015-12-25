@@ -24,7 +24,7 @@ var Header = React.createClass({
               </div>
               <div className="col-xs-12 col-sm-8 col-sm-offset-1">
                 <DateCountDown
-                  targetDate="December 25, 2015 00:00:00"
+                  targetDate="December 25, 2016 00:00:00"
                   countDownTitle="'Till Christmas!"/>
               </div>
 
