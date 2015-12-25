@@ -1,0 +1,27 @@
+{
+  "name": "react-xmas",
+  "version": "1.0.0",
+  "description": "React xmas",
+  "main": "index.js",
+  "scripts": {
+    "start": "watchify src/main.jsx -v -t [ babelify --presets [ react ] ] -o public/js/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pyromaticx/react-for-xmas.git"
+  },
+  "author": "Kelly Garrett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pyromaticx/react-for-xmas/issues"
+  },
+  "homepage": "https://github.com/pyromaticx/react-for-xmas#readme",
+  "dependencies": {
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "watchify": "^3.6.1"
+  }
+}
