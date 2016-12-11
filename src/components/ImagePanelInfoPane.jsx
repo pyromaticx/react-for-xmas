@@ -1,34 +1,41 @@
-var React = require('react');
+import React from 'react';
 
 // can set heading, or content via props or pass in one string seperated by a |
 // and component will split the first into the heading and second into the content
-var infoPane = React.createClass({
-  componentWillMount: function() {
-    var data = this.props.content.split('|');
-    this.setState({paneTitle: data[0]});
-    this.setState({paneContent: data[1]});
-    this.setState({textShadow: '5px 5px 5px rgba(033,033,033,0.3)'});
-  },
-  handleClick: function() {
-    alert("You clicked on: " + this.state.paneTitle);
-  },
-  handleMouseOver: function() {
-    this.setState({textShadow: '0 5px 10px rgba(200,200,200,0.7)'});
-  },
-  handleMouseLeave: function() {
-    this.setState({textShadow: '5px 5px 5px rgba(033,033,033,0.3)'});
-  },
-  render: function() {
-    // inline styles
-    var divStyle = {
-      textShadow: this.state.textShadow,
-      borderRadius: '10'
+class ImagePanelInfoPane extends React.Component {
+  constructor(props) {
+    super(props);
+    const data = this.props.content.split('|');
+    this.state = {
+      paneTitle: data[0],
+      paneContent: data[1],
+      textShadow: '5px 5px 5px rgba(033,033,033,0.3)'
     };
-    var headingStyle = {
+  }
+
+  handleClick() {
+    alert(`You clicked on: ${this.state.paneTitle}`);
+  }
+
+  handleMouseOver() {
+    this.setState({textShadow: '0 5px 10px rgba(200,200,200,0.7)'});
+  }
+
+  handleMouseLeave() {
+    this.setState({textShadow: '5px 5px 5px rgba(033,033,033,0.3)'});
+  }
+
+  render() {
+    // inline styles
+    const divStyle = {
+      textShadow: this.state.textShadow,
+      borderRadius: '10px'
+    };
+    const headingStyle = {
       fontFamily: 'Helvetica',
       color: 'rgba(255,255,255,0.9)'
     };
-    var contentStyle = {
+    const contentStyle = {
       fontStyle: 'bold',
       color: 'white',
       textShadow: '5px 5px 5px rgba(033,033,033,0.7)'
@@ -44,6 +51,6 @@ var infoPane = React.createClass({
       </div>
     );
   }
-});
+}
 
-module.exports = infoPane;
+export default ImagePanelInfoPane;

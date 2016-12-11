@@ -1,41 +1,39 @@
-var React = require('react');
+import React from 'react';
 
-var DateCountDown = React.createClass({
-  componentWillMount: function() {
-    // parses target date into millis
-    this.setState({targetDate: Date.parse(this.props.targetDate)});
-    // sets clock update interval
-    var dateNow = setInterval(this.tick, 1000);
-    // calls the tick function to update clock on init. Had to use setInterval
-    // because sync function was calling setState before defined?
-    var initTimer = setTimeout(this.tick, 0);
-  },
-  tick: function() {
+class DateCountDown extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {targetDate: Date.parse(props.targetDate)};
+    this.dateNow = setInterval(() => this.tick(), 1000);
+  }
+
+  tick() {
     // finds the days remaining, then removes that amount of time from
     // timeRemaining, then does the same with hours, min, secs
-    var timeRemaining = this.state.targetDate - Date.now();
-    var days = Math.floor(timeRemaining / 86400000);
+    let timeRemaining = this.state.targetDate - Date.now();
+    const  days = Math.floor(timeRemaining / 86400000);
     timeRemaining -= (days * 86400000);
-    var hours = Math.floor(timeRemaining / 3600000);
+    const hours = Math.floor(timeRemaining / 3600000);
     timeRemaining -= (hours * 3600000);
-    var minutes = Math.floor(timeRemaining / 60000);
+    const minutes = Math.floor(timeRemaining / 60000);
     timeRemaining -= (minutes * 60000);
-    var seconds = Math.floor(timeRemaining / 1000);
+    const seconds = Math.floor(timeRemaining / 1000);
     this.setState({
       days: days,
       hours: hours,
       minutes: minutes,
-      seconds: seconds
+      seconds: seconds,
+      targetDate: this.state.targetDate
     });
-  },
-  render: function() {
+  }
+
+  render() {
     //inline styles
-    var timerStyle = {
+    let timerStyle = {
       background: 'transparent',
-      fontSize: '10',
-      textAlign: 'center',
-      fontSize: '8'
-    }
+      fontSize: '10px',
+      textAlign: 'center'
+    };
     return (
       <div style={timerStyle} className='container-fluid'>
         <div className='row'>
@@ -63,6 +61,6 @@ var DateCountDown = React.createClass({
       </div>
     );
   }
-});
+}
 
-module.exports = DateCountDown;
+export default DateCountDown;

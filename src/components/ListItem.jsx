@@ -1,15 +1,10 @@
-var React = require('React');
+import React from 'react';
 
-var ListItem = React.createClass({
-  render: function() {
-    return (
+const ListItem = ({text}) =>
       <li>
         <h4>
-          {this.props.text}
+          {text}
         </h4>
-      </li>
-    );
-  }
-});
+      </li>;
 
-module.exports = ListItem;
+export default ListItem;

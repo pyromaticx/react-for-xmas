@@ -1,8 +1,8 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var InfoPanel = require('./components/InfoPanel.jsx');
-var ImagePanel = require('./components/ImagePanel.jsx');
-var Header = require('./components/Header.jsx');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import InfoPanel from './components/InfoPanel.jsx';
+import ImagePanel from './components/ImagePanel.jsx';
+import Header from './components/Header.jsx';
 
 ReactDOM.render(<Header />, document.getElementById('header'));
 ReactDOM.render(<InfoPanel
