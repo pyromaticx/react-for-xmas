@@ -17,7 +17,7 @@ const ImagePanel = ({imgSrc, topPanel, valueLeft, valueMiddle, valueRight}) => {
     backgroundPosition: 'center'
   };
   // if an image was passed in, use it
-  if(imgSrc) {
+  if (imgSrc) {
     containerStyle.backgroundImage = 'url(' + imgSrc + ')';
   }
   // styles for info panels

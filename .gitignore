@@ -6,3 +6,4 @@ logs
 *.log
 npm-debug.log*
 .idea/
+/public/js/main.js

@@ -1,11 +1,8 @@
 import React from 'react';
 
 class DateCountDown extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {targetDate: Date.parse(props.targetDate)};
-    this.dateNow = setInterval(() => this.tick(), 1000);
-  }
+  state = {targetDate: Date.parse(this.props.targetDate)};
+  dateNow = setInterval(() => this.tick(), 1000);
 
   tick() {
     // finds the days remaining, then removes that amount of time from

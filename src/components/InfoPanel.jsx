@@ -1,22 +1,19 @@
 import React from 'react';
 
 export class InfoPanel extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {opacity:'0.5'};
-  }
+  state = {opacity:'0.5'};
 
-  handleClick() {
+  handleClick = () => {
     alert(`You clicked on: ${this.props.heading}`);
-  }
+  };
 
-  handleMouseOver() {
+  handleMouseOver = () => {
     this.setState({opacity: '1'});
-  }
+  };
 
-  handleMouseLeave() {
+  handleMouseLeave = () => {
     this.setState({opacity: '0.5'});
-  }
+  };
 
   render() {
     const divStyle = {

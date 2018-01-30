@@ -2,23 +2,18 @@ import React from 'react';
 import List from './List.jsx';
 
 class ListManager extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {items: [], newItemText: ''};
-    this.onChange = this.onChange(this);
-    this.handleSubmit = this.handleSubmit(this);
-  }
+  state = {items: [], newItemText: ''};
 
-  onChange(e) {
+  onChange = (e) => {
     this.setState({newItemText: e.target.value});
-  }
+  };
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     const currentItems = this.state.items;
     currentItems.push(this.state.newItemText);
     this.setState({items: currentItems, newItemText: ''});
-  }
+  };
 
   render() {
     const divStyle = { marginTop: '10px'};

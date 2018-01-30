@@ -3,27 +3,24 @@ import React from 'react';
 // can set heading, or content via props or pass in one string seperated by a |
 // and component will split the first into the heading and second into the content
 class ImagePanelInfoPane extends React.Component {
-  constructor(props) {
-    super(props);
-    const data = this.props.content.split('|');
-    this.state = {
-      paneTitle: data[0],
-      paneContent: data[1],
-      textShadow: '5px 5px 5px rgba(033,033,033,0.3)'
-    };
-  }
+  data = this.props.content.split('|');
+  state = {
+    paneTitle: this.data[0],
+    paneContent: this.data[1],
+    textShadow: '5px 5px 5px rgba(033,033,033,0.3)'
+  };
 
-  handleClick() {
+  handleClick = () => {
     alert(`You clicked on: ${this.state.paneTitle}`);
-  }
+  };
 
-  handleMouseOver() {
+  handleMouseOver = () => {
     this.setState({textShadow: '0 5px 10px rgba(200,200,200,0.7)'});
-  }
+  };
 
-  handleMouseLeave() {
+  handleMouseLeave = () => {
     this.setState({textShadow: '5px 5px 5px rgba(033,033,033,0.3)'});
-  }
+  };
 
   render() {
     // inline styles
